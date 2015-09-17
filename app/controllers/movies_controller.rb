@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.order("title DESC")
+    @movies = Movie.order("title DESC", "release_date ASC")
   end
 
   def new
