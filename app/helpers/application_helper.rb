@@ -1,6 +1,7 @@
 module ApplicationHelper
 	def sortable(column, title = nil)
 		title ||= column.titleize
-		link_to title, :sort => column
+		css_class = column
+		link_to title, {:sort => column}, {:class => css_class}
 	end
 end
