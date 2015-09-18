@@ -43,9 +43,9 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
-#  def all_ratings
- #   @all_ratings = ['G', 'PG', 'PG-13', 'R']
-  #end
+  def all_ratings
+    @all_ratings = ['G', 'PG', 'PG-13', 'R']
+  end
 
   private
 
