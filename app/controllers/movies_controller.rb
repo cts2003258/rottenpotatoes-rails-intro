@@ -42,11 +42,9 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
 
-  #end all_ratings
-  #  @all_ratings = ['G', 'PG', 'PG-13', 'R']
+#  def all_ratings
+ #   @all_ratings = ['G', 'PG', 'PG-13', 'R']
   #end
-
-  def 
 
   private
 
