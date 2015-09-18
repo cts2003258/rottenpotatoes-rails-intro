@@ -21,7 +21,3 @@ movies = [{:title => 'Aladdin', :rating => 'G', :release_date => '25-Nov-1992'},
 movies.each do |movie|
   Movie.create!(movie)
 end
-
-movies.sort_by_date do |movie|
-  movies.sort_by {|element| element[:release_date]}
-end
