@@ -46,6 +46,6 @@ class MoviesController < ApplicationController
   private
 
   def sort_column
-    [title release_date].include?(params[:sort]) ? params[:sort] : "title"
+    %w[title release_date].include?(params[:sort]) ? params[:sort] : "title"
   end
 end
