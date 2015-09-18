@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
   end
 
   def new
-    # default: render 'new' template
+    # default: render 'new' templateCT
   end
 
   def create
@@ -42,9 +42,9 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
 
-  end all_ratings
-    @all_ratings = ['G', 'PG', 'PG-13', 'R']
-  end
+  #end all_ratings
+  #  @all_ratings = ['G', 'PG', 'PG-13', 'R']
+  #end
 
   def 
 
