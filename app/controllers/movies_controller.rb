@@ -46,6 +46,6 @@ class MoviesController < ApplicationController
   private
 
   def sort_column
-    params[:sort] || "title"
+    ["title" "release_date"].include?(params[:sort]) ? params[:sort] : "title"
   end
 end
