@@ -14,6 +14,10 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.order(sort_column)
     @all_ratings = ['G','PG','PG-13','R']
+
+    if params[:ratings].key.length > 0
+      @movies = @movies.where(rating: params[:ratings].keys)
+    end
   end
 
   def new
