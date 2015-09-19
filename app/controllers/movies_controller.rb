@@ -18,6 +18,7 @@ class MoviesController < ApplicationController
     if params[:ratings].key.length > 0
       @movies = @movies.where(rating: params[:ratings].keys)
     end
+    raise
   end
 
   def new
