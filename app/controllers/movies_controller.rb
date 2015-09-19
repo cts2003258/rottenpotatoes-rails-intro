@@ -12,11 +12,12 @@ class MoviesController < ApplicationController
   end
 
   def index
+    @movies = Movie.all
     @movies = Movie.order(sort_column)
     @all_ratings = Movie.all_ratings
 
-    if params[:ratings].keys.length > 0
-      @movies.where(rating: params[:ratings].keys)
+    if (params.has_key? :ratings) && (params[:ratings].keys.length > 0)
+      @movies = @movies.where(rating: params[:ratings].keys)
     end
   end
 
