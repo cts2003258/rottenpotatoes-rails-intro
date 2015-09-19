@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
     @movies = Movie.order(sort_column)
     @all_ratings = ['G','PG','PG-13','R']
 
-    if params[:ratings].key.length > 0
+    if params[:ratings].keys.length > 0
       @movies = @movies.where(rating: params[:ratings].keys)
     end
     raise
