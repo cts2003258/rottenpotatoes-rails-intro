@@ -8,7 +8,7 @@
       %th Rating
       %th= sortable "release_date"
       %th More Info
-      
+
   %tbody
     - @movies.each do |movie|
       %tr
@@ -18,4 +18,3 @@
         %td= link_to "More about #{movie.title}", movie_path(movie)
 
 = link_to 'Add new movie', new_movie_path
-
