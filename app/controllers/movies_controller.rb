@@ -12,12 +12,20 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
-    @movies = Movie.order(sort_column)
     @all_ratings = Movie.all_ratings
-
-    if (params.has_key? :ratings) && (params[:ratings].keys.length > 0)
-      @movies = @movies.where(rating: params[:ratings].keys)
+    if ((params.has_key? :sort) && (params[:sort] != nil)) && ((params.has_key? :ratings) && (params[:ratings] != nil)) 
+      session[:sort] = params[:sort]
+      session[:ratings] = params[:ratings]
+      @movies = Movie.where(rating: params[:ratings].keys).order(sort_column)
+    elsif (params.has_key? :sort) && (params[:sort] != nil)
+      session[:sort] = params[:sort]
+      @movies = Movie.order(sort_column)
+    elsif (params.has_key? :ratings) && (params[:ratings] != nil)
+      session[:ratings] = params[:ratings]
+      @movies = Movie.where(rating: params[:ratings].keys)
+    else
+      params[:ratings] = {"G" => 'G', "PG" => "PG", "PG-13" => 'PG-13', "R" => 'R'}
+      @movies = Movie.all
     end
   end
 
@@ -52,6 +60,6 @@ class MoviesController < ApplicationController
   private
 
   def sort_column
-    %w[title release_date].include?(params[:sort]) ? params[:sort] : "title"
+    %w[title release_date].include?(params[:sort]) ? params[:sort] : nil
   end
 end
