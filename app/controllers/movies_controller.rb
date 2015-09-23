@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
       @movies = Movie.order(sort_column)
     elsif (params.has_key? :ratings) && (params[:ratings] != nil)
       session[:ratings] = params[:ratings]
-      @movies = Movie.where(rating: params[:ratings].keys)
+      @movies = Movie.where(rating: params[:ratings].keys).order(sort_column)
     else
       params[:ratings] = {"G" => 'G', "PG" => "PG", "PG-13" => 'PG-13', "R" => 'R'}
       @movies = Movie.all

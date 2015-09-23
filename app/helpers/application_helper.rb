@@ -1,14 +1,4 @@
 module ApplicationHelper
-#	def sort_by_title
-#		session[:sort] = "title"
-#		link_to "Title", movies_path(sort: "title", ratings: params[:ratings])
-#	end
-
-#	def sort_by_release_date
-#		session[:sort] = "release_date"
-#		link_to "Release Date", movies_path(sort: "release_date", ratings: params[:ratings])
-#	end
-
 	def sort_by(name)
 		if name == "title"
 			session[:sort] = "title"
@@ -38,8 +28,6 @@ module ApplicationHelper
 	end
 
 	def refresh
-#		params[:sort] = nil
-#		session[:sort] = nil
 		submit_tag 'Refresh'
 	end
 end
